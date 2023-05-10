@@ -64,7 +64,7 @@ function check() {
     let container = $('#container');
     $.ajax({
         dataType: "json",
-        url:"/bugweb07/bug",
+        url:"/bug",
         type: "get",
         data: {session: session.val(), maxNum: maxNum.val(), minNum: minNum.val(), loopNum: loopNum.val()},
         beforeSend: function() {

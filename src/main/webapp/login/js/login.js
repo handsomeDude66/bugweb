@@ -31,7 +31,7 @@ function clickBtn() {
     // 发送ajax请求
     axios({
         method: 'POST',
-        url: '/bugweb07/loginIn',
+        url: '/loginIn',
         data: { name, inv }
     })
         .then(function (response) {
