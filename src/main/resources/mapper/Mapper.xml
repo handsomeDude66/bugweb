@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper里面可以写增删改查语句 mapper一般对应着一个接口 接口里面则有方法 id则表示的是方法-->
+<mapper namespace="com.yk.bug.dao.LoginMapper">
+<!--  id表示namespace的方法名  resultType表示的是返回的类型 -->
+<!--    db03.user表示的是db03数据库 中的user表-->
+    <select id="selectByInv" resultType="com.yk.bug.pojo.User" parameterType="string">
+        select * from login_user where inv_code = #{inv}
+    </select>
+</mapper>

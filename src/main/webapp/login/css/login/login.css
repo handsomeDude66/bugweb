@@ -1,0 +1,106 @@
+* {
+    margin:0;
+    padding: 0 ;
+}
+.container {
+    perspective:5px;
+    /* perspective-origin:610px 165px; */
+    perspective-origin: 50% 165px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-items: flex-start
+}
+.warp {
+    transform-style: preserve-3d;
+    width: 500px;
+    height: 500px; 
+    position: absolute;
+    top:-110px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: translateZ(10px); */
+    transform: rotate(0deg) translateZ(-140px);
+    animation: 60s linear infinite animations;
+}
+.wall {
+    position: absolute;
+    transform: rotate(350deg);
+    width: 300px;
+    height: 300px;
+    background: url(image/绚丽星空_爱给网_aigei_com.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.top {
+    transform: rotateX(90deg) translateZ(150px);
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(150px);
+}
+.left {
+    transform: rotateY(90deg) translateZ(150px);
+}
+.right {
+    transform: rotateY(90deg) translateZ(-150px);
+}
+.back {
+    transform: translateZ(-150px);
+}
+@keyframes animations {
+    0% {
+        transform: rotate(0deg) translateZ(-140px);
+    }
+    100% {
+        transform: rotate(360deg) translateZ(100px);
+    }
+}
+.login-div-big {
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    height: 400px;
+    color: #fff;
+    font-weight: 600;
+    background: linear-gradient(rgba(255, 192, 203, 0.715) 0% , rgba(135, 207, 235, 0.975) 100%);
+    padding: 30px;
+    border-radius: 10px;
+}
+.login-div-small-1 {
+    text-align: center;
+    font-size: 34px;
+    color: rgba(16, 16, 16, 0.772);
+}
+.login-div-small-2 {
+    margin-top: 20px;
+}
+#login-btn {
+    border: 0px;
+    width: 86%;
+    padding: 10px 35px 10px 35px;
+    border-radius: 8px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: gray;
+}
+.login-div-small-2 input {
+    border: 0;
+    width: 200px;
+    height: 25px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: rgba(227, 226, 226, 0.872);
+}
+#name-txt {
+    margin-left: 15px;
+}
+.login-div-small-2:nth-last-child(1) {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}

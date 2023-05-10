@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="warp">
+            <div class="wall top"></div>
+            <div class="wall bottom"></div>
+            <div class="wall left"></div>
+            <div class="wall right"></div>
+            <div class="wall back"></div>
+        </div>
+        <div class="login-div-big">
+            <div class="login-div-small-1">Login Page</div>
+            <div class="login-div-small-2">
+                <div>姓名: <input type="text" id="name-txt" name="name" placeholder="请输入你的姓名"></div>
+                <div>邀请码: <input type="text" id="inv-txt" name="inv" placeholder="这是秘密"></div>
+                <div id="hidden-div" style="text-align: left; margin: 5px 0 0 80px; font-size: 14px; font-weight: 600; color: rgba(247, 103, 103, 0.801); position: absolute;">不能有空值!!!</div>
+                <div><button id="login-btn" onclick="clickBtn()">Login</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/lib/axios.min.js"></script>
+    <script src="js/lib/jquery-3.1.1.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
