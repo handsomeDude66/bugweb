@@ -1,0 +1,3 @@
+mvn clean package
+sudo cp target/bugweb07.war /opt/tomcat/webapps/
+echo 完成
