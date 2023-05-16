@@ -22,6 +22,8 @@ public class LoginServiceImpl {
         boolean index = false;
         String name = json.getString("name");
         String inv = json.getString("inv");
+        int num = json.getIntValue("num");
+        System.out.println(num);
         LoginDao loginDao = new LoginDao();
         User user = loginDao.selectByInv(inv);
         if (user != null) {
@@ -37,7 +39,11 @@ public class LoginServiceImpl {
 //        否则传入一个json
         HttpSession session = request.getSession();
         session.setAttribute("name", name);
-        response.sendRedirect(request.getContextPath() + "/home");
+        if (num == 1) {
+            response.sendRedirect(request.getContextPath() + "/randompage/randompage.html");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/home");
+        }
     }
 
 }

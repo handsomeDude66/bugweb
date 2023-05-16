@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random game</title>
+    <style>
+        .input-random-num {
+            width: 415px;
+            position: absolute;
+            left: 50%;
+            margin-left: calc(-415px /2);
+            animation: identifier 2s;
+            top: 50%;
+            margin-top: calc(-35px /2);
+        }
+
+        .random-num {
+            opacity: .9;
+            width: 300px;
+            height: 30px;
+            box-shadow: 0px 0px 3px .5px #000;
+            border: 0px #fff;
+            /* border: 1px solid skyblue; */
+        }
+
+        .btn-s {
+            /* opacity: 0; */
+            height: 35px;
+            width: 100px;
+            border-radius: 10px;
+            border: 0px;
+            /* background: linear-gradient( rgb(21, 21, 121) 0%,  rgb(221, 63, 63) 100%); */
+            font-size: 14px;
+            color: skyblue;
+            box-shadow: 0px 0px 5px rgb(1, 183, 255);
+            transition: all 1s;
+        }
+
+        .btn-s:hover {
+            background: rgba(135, 207, 235, 0.79);
+            color: #fff;
+            box-shadow: 0 0 5px #000;
+            /* background: linear-gradient( rgb(221, 63, 63) 0%,   rgb(21, 21, 121) 100%); */
+        }
+
+        .wrong-msg {
+            color: rgb(250, 77, 77);
+            font-weight: bold;
+            font-size: small;
+            display: none;
+        }
+
+        .container-random {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            left: 50%;
+            margin-left: calc(-300px / 2);
+            transform: translateY(50%);
+            cursor: pointer;
+        }
+
+        .circle {
+            background: rgba(255, 192, 203);
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 10px;
+        }
+
+        .arrows {
+            width: 60px;
+            height: 10px;
+            background-color: skyblue;
+            position: absolute;
+            top: 50%;
+            border-radius: 0 50% 50% 0;
+            margin-top: calc(-10px / 2);
+
+        }
+
+        .warp {
+            background-color: rgba(255, 192, 203);
+            width: 100px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: calc(-60px/ 2);
+            margin-left: calc(-100px/ 2);
+            overflow: hidden;
+            /* transition:  all .1; */
+        }
+
+        .test {
+            text-align: center;
+            /* animation: randomGame 1s; */
+        }
+
+        @media screen and (max-width: 500px) {
+            .random-num {
+                width: 16rem;
+            }
+
+            .wrong-msg,
+            .random-num {
+                margin-left: 12%;
+            }
+
+            .btn-s {
+                width: 5rem;
+                transition: none;
+            }
+
+        }
+
+        @keyframes identifier {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+<script src="./lib/jquery-3.1.1.js"></script>
+
+<body>
+    <div class="container">
+        <div class="container-input">
+            <div class="input-random-num">
+                <input type="text" class="random-num" placeholder="你随机的事件有多少起(输入数字)">
+                <input type="button" value="下一项" class="btn-s" onclick="clickBtn(0)">
+                <div class="wrong-msg"></div>
+            </div>
+        </div>
+        <div class="container-random" style="display: none">
+            <div class="circle" onclick="gameStart()">
+                <div class="warp">
+                    <h3 class="test">点击我开始</h3>
+                </div>
+            </div>
+            <div class="arrows"></div>
+        </div>
+    </div>
+    <script>
+        let arr = [], index = false, time, iNum = -45;
+        let clickBtn = num => {
+            let inputNum = $(`.input-random-num`);
+            let msg = $(`.wrong-msg`);
+            let randomNum = $(".random-num");
+            if (num === 0) { // 如果num == 0那么就表示不是第一次进来
+                if (isNaN(randomNum.val())) {
+                    // 不是一个数字
+                    msg.css("display", "block");
+                    msg.text("不是一个数字!");
+                    return;
+                }
+                if (randomNum.val() > 10) {
+                    // 不能超过十起事件
+                    msg.css("display", "block");
+                    msg.text("事件不能超过十例!!");
+                    return;
+                }
+                if (randomNum.val() <= 1) {
+                    // 事件不能小于等于一起
+                    msg.css("display", "block");
+                    msg.text("事件不能小于等于一例!!");
+                    return;
+                }
+            }
+
+            // 隐藏
+            inputNum.css("display", "none");
+            let container = $(".container-input");
+            // 到这就是ok的num了s
+            let str = "display:none;";
+            if (num === 0) {
+                for (let i = 0; i < randomNum.val(); i++) {
+                    let inputDiv = $(`<div></div>`);
+                    let inputElement = $(`<input type="text" class="random-num" i=${i} style="${str};margin-right:5px;" placeholder="请输入第${i + 1}例事件"> `);
+                    let btnElement = $(`<input type="button" value="下一项" i=${i} class="btn-s" style="${str}"  onclick="clickBtn(${i + 1})">`);
+                    let wrongElement = $(`<div class="wrong-msg" i=${i} style="${str}"></div>`);
+
+                    container.append(inputDiv);
+                    let smallDiv = $(`.container-input>div:nth-child(${i + 2})`);
+                    smallDiv.append(inputElement);
+                    smallDiv.append(btnElement);
+                    smallDiv.append(wrongElement);
+                }
+            }
+            // 显示
+            let i = $(`input[i=${num}]`);
+            let beforeI = $(`input[i=${num - 1}]`);
+            if (num > 0) {
+                arr.push(beforeI.val());
+            }
+            i.css("display", "inline-block");
+            i.parent().addClass("input-random-num");
+            console.log("数组" + arr.length);
+            console.log(arr);
+            console.log("random" + randomNum.val());
+            if (randomNum.val() == arr.length) {
+                let containerRandom = $(".container-random");
+                containerRandom.css({ "display": "block",
+                 "animation-name": "identifier",
+                  "animation-duration": "1s",
+                "animation-fill-mode": "forwards" });
+            }
+        }
+        function gameStart() {
+            let i = 0, j = 0;
+            let test = $(".test");
+
+            if (index = !index) {
+                time = setInterval(function () {
+                    test.css(`transform`, `translateY(${i += 4}px)`);
+                    // console.log(i);
+                    if (i >= 60) {
+                        i = -60;
+                        test.text(arr[Math.floor(Math.random() * ((arr.length - 1) + 1)) + 0]);
+                        let translateY = test.css("transform", "translateY(-60px)");
+                    }
+                }, 1);
+            } else {
+                // console.log(time);
+                clearInterval(time);
+                test.css("transform", "translateY(0px)");
+
+            }
+        }
+    </script>
+</body>
+
+</html>
