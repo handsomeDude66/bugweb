@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>random game</title>
     <style>
+        body {
+            width: 95%;
+            height: 590px;
+            background: linear-gradient(125deg,rgb(247, 82, 110), rgb(2, 175, 244), rgb(167, 31, 167), rgb(213, 213, 54), rgb(56, 174, 56));
+            background-repeat: no-repeat;
+            background-size: 400%;
+            /* background-position: 50%; */
+            animation: bgmove 20s ease-in-out infinite;
+        }
         .input-random-num {
             width: 415px;
             position: absolute;
@@ -21,8 +30,9 @@
             opacity: .9;
             width: 300px;
             height: 30px;
-            box-shadow: 0px 0px 3px .5px #000;
+            /* box-shadow: 0px 0px 3px .5px #000; */
             border: 0px #fff;
+            border-radius: 10px;
             /* border: 1px solid skyblue; */
         }
 
@@ -35,7 +45,7 @@
             /* background: linear-gradient( rgb(21, 21, 121) 0%,  rgb(221, 63, 63) 100%); */
             font-size: 14px;
             color: skyblue;
-            box-shadow: 0px 0px 5px rgb(1, 183, 255);
+            /* box-shadow: 0px 0px 5px rgb(1, 183, 255); */
             transition: all 1s;
         }
 
@@ -100,11 +110,15 @@
             text-align: center;
             /* animation: randomGame 1s; */
         }
-
+        .container {
+            width: 100%;
+            /* background: linear-gradient(blue, red); */
+        }
         @media screen and (max-width: 500px) {
             .input-random-num {
                 width: 395px;
             }
+
             .random-num {
                 width: 16rem;
             }
@@ -134,11 +148,21 @@
             }
 
         }
+        @keyframes bgmove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
     </style>
 </head>
-<script src="./lib/jquery-3.1.1.js"></script>
 
-<body>
+<body class="bg">
     <div class="container">
         <div class="container-input">
             <div class="input-random-num">
@@ -156,6 +180,8 @@
             <div class="arrows"></div>
         </div>
     </div>
+    <script src="./lib/alexgibson-shake.js-d232eee/shake.js"></script>
+    <script src="./lib/jquery-3.1.1.js"></script>
     <script>
         let arr = [], index = false, time, iNum = -45;
         let clickBtn = num => {
@@ -215,10 +241,12 @@
             console.log("random" + randomNum.val());
             if (randomNum.val() == arr.length) {
                 let containerRandom = $(".container-random");
-                containerRandom.css({ "display": "block",
-                 "animation-name": "identifier",
-                  "animation-duration": "1s",
-                "animation-fill-mode": "forwards" });
+                containerRandom.css({
+                    "display": "block",
+                    "animation-name": "identifier",
+                    "animation-duration": "1s",
+                    "animation-fill-mode": "forwards"
+                });
             }
         }
         function gameStart() {
