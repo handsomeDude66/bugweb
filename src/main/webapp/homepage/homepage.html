@@ -104,6 +104,9 @@
             animation: loading 1s infinite;
             margin-bottom: 30px;
         }
+        #check-box {
+            margin: 0 auto;
+        }
         @keyframes loading {
             0%{
                 transform: scale(1);
@@ -166,7 +169,7 @@
                     <li class="min"><input type="text" name="min" id="min" placeholder="min"></li>
                     <li class="loop"><input type="text" name="loop" id="loop" placeholder="loop"></li>
                     <li class="hidden" id="check-box"
-                        style="margin-left: 100px; color:red; font-weight: bold; width: 250px;">Null Values!
+                        style=" color:red; font-weight: bold; width: 250px;">Null Values!
                     </li>
                     <button id="btn" onclick="check()">submit</button>
                 </ul>

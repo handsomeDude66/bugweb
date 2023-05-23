@@ -84,33 +84,35 @@
             position: relative;
             left: 50%;
             margin-left: calc(-300px / 2);
-            transform: translateY(50%);
+            top: 50%;
+            margin-top: calc(-300px /2);
+            /* transform: translateY(50%); */
             cursor: pointer;
         }
 
         .circle {
-            background: rgba(255, 192, 203);
+            /* background: rgba(255, 192, 203); */
             width: 300px;
             height: 300px;
             position: absolute;
-            border-radius: 50%;
+            background: url('./image/bear.png');
+            background-size: 45%;
+            /* background-repeat: no-repeat; */
+            background-position: 50%;
+            border-radius: 10%;
             box-shadow: 0 0 10px;
         }
 
         .arrows {
-            width: 60px;
-            height: 10px;
-            background-color: skyblue;
             position: absolute;
-            top: 50%;
-            border-radius: 0 50% 50% 0;
-            margin-top: calc(-10px / 2);
-
+            right: 40%;
+            top: 8.5%;
+            transform: rotate(90deg) scale(0.5);
         }
 
         .warp {
-            background-color: rgba(255, 192, 203);
-            width: 100px;
+            /* background-color: rgba(255, 192, 203); */
+            width: 120px;
             height: 60px;
             position: absolute;
             top: 50%;
@@ -123,7 +125,10 @@
 
         .test {
             text-align: center;
+            width: 120px;
+            color: #e8e2e2e6;
             /* animation: randomGame 1s; */
+            text-shadow: 2px 2px 5px #da8823;
         }
 
         @media screen and (max-width: 500px) {
@@ -189,10 +194,10 @@
         <div class="container-random" style="display: none">
             <div class="circle" onclick="gameStart()">
                 <div class="warp">
-                    <h3 class="test">点击我开始</h3>
+                    <h3 class="test">点击虫大开始</h3>
                 </div>
             </div>
-            <div class="arrows"></div>
+            <div class="arrows"><img src="./image/pointer.png" alt="" srcset=""> </div>
         </div>
     </div>
     <script src="./lib/alexgibson-shake.js-d232eee/shake.js"></script>
@@ -265,7 +270,7 @@
             }
         }
         function gameStart() {
-            let i = 0, j = 0;
+            let i = 0;
             let test = $(".test");
 
             if (index = !index) {
