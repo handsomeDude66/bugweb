@@ -1,9 +1,10 @@
-package com.yk.bug.service;
+package com.yk.bug.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,8 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
-public class BugServiceImpl {
+@Service
+public class BugService {
 
     /**
      * version:3.0
@@ -28,7 +29,7 @@ public class BugServiceImpl {
     private static int min;
     private static double status;
 
-    public static void realBug(HttpServletRequest req, HttpServletResponse resp) throws IOException, InterruptedException {
+    public void realBug(HttpServletRequest req, HttpServletResponse resp) throws IOException, InterruptedException {
         session = req.getParameter("session");
         int loop = Integer.parseInt(req.getParameter("loopNum"));
         max = Integer.parseInt(req.getParameter("maxNum"));

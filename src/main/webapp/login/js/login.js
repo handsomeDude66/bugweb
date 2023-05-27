@@ -1,4 +1,4 @@
-let name_, inv, hidden, objs, index = 0, responseURL, clickNum, clickDiv;
+let name_, inv, hidden, index = 0, clickDiv;
 
 hidden = $("#hidden-div").addClass("hidden");
 // jquery 加载事件
@@ -35,7 +35,7 @@ clickDiv = function(num) {
     axios({
         method: 'POST',
         url: '/loginIn',
-        data: {name, inv, num}
+        data: {name :encodeURI(encodeURI(name)), inv, num}
     })
         .then(function (response) {
             if (response.data === "") {
@@ -49,6 +49,7 @@ clickDiv = function(num) {
             if (!(response.data instanceof Object) &&
                 response.data.toString().startsWith('<!DOCTYPE html>')) {
                 aRClass(hidden, "hidden", 1);
+                console.log(name)
                 window.location.href = response.request.responseURL;
             }
         })

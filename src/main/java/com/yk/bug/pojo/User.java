@@ -1,9 +1,5 @@
 package com.yk.bug.pojo;
 
-import com.yk.bug.dao.LoginMapper;
-import com.yk.bug.util.MybatisUtils;
-import org.apache.ibatis.session.SqlSession;
-import org.testng.annotations.Test;
 
 public class User {
     private String name;
