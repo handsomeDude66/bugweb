@@ -34,16 +34,6 @@
     <url-pattern>/</url-pattern>
   </filter-mapping>
 
-  <filter>
-    <filter-name>checkAll</filter-name>
-    <filter-class>com.yk.bug.filter.CheckAll</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>checkAll</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-
 
   <!-- add your servlet and servlet-mapping elements here -->
 

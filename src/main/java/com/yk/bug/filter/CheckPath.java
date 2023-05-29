@@ -18,10 +18,11 @@ public class CheckPath extends HttpFilter {
         String servletPath = req.getServletPath();
         System.out.println("path " + servletPath);
         if ("/".equals(servletPath)) {
-            if (req.getHeader("Sec-Ch-Ua-Mobile").equals("?1")) {
-                resp.sendRedirect(req.getContextPath() + "/login/mobileLogin.html");
-            } else {
+            if (req.getHeader("user-agent").contains("Android") || req.getHeader("user-agent").contains("iPhone")) {
+
                 resp.sendRedirect(req.getContextPath() + "/login/login.html");
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/login/mobileLogin.html");
             }
         } else {
             filterChain.doFilter(req, resp);
