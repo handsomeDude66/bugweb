@@ -3,12 +3,16 @@
 let username = $("#username"), container = $("#div-body"), index = 0,
     list = [{"background": "url(./image/asshole3.png)"}, {"background": "url(./image/handsome3.png)"},
         {"background": "pink"}, {"background": "red"}],
-    session = $("#session"), maxNum = $("#max"), minNum = $("#min"), loopNum = $("#loop");
+    session = $("#session"), maxNum = $("#max"), minNum = $("#min"),
+    loopNum = $("#loop"),h1Box = $("#h1-box");
 //解码
 username.text(decodeURIComponent(getCookie("name")));
 container.css(list[0]);
 setInterval('a()', 3000);
-
+if (username.text() === "颜凯") {
+    h1Box.text("welcome home, master");
+    h1Box.css("text-align", "center");
+}
 
 function a() {
     if (index >= 4) {

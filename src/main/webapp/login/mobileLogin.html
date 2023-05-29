@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- version:1.0 author:yankai -->
+    <!-- content: i'll use flex layout to complete my login page -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="css/login/image/asshole3.ico">
+    <title>Login Page</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    input {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        height: 100%;
+        width: 100%;
+    }
+    .login-div-big {
+        display: flex;
+        background-color: #fff;
+        height: 100%;
+        width: 100%;
+        padding: 50px 50px 0px 50px;
+        border-radius: 5px;
+        flex-direction: column;
+    }
+    .login-div-big>input,div {
+        margin-bottom: 10px;
+    }
+    .login-div-small-1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .login-div-big input,button {
+        border: 1px solid #dcdada;
+        height: 35px;
+        width: 100%;
+        color: #666;
+        padding-left: 10px;
+    }
+    .login-div-small-3 {
+        margin-top: auto;
+    }
+    #login-btn {
+        background-color: rgb(134, 220, 254);
+        border: 1px solid transparent;
+        padding:8px;
+        height: auto;
+    }
+    #hidden-div {
+        margin:0px;
+        color: rgb(255, 79, 79);
+        font-size: 12px;
+    }
+    .choose {
+    width: 300px;
+    height: 200px;
+    background: #e7e7e7;
+    box-shadow: 0 0 10px;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    border-radius: 10px;
+    transition: all 1s;
+    top: 50%;
+    display: none;
+    margin-left: calc(-300px / 2);
+    
+}
+.choose>div:first-child {
+    border-bottom: 1px solid #000;
+    box-shadow: 0px 0px 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+.app>div {
+    float: left;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+    color:rgba(16, 16, 16, 0.772);
+}
+.app>a>div:hover {
+    box-shadow: 0px 5px 10px #000;
+    transform: translateY(-10px);
+}
+@keyframes identifier {
+    100% {
+        margin-top: calc(-200px / 2);
+    }
+    
+}
+ 
+
+</style>
+<body>
+    <div class="choose" id="choose">
+        <div>choose your app</div>
+        <div style="text-align: center; font-size: 14px; color:#666">请选择app</div>
+        <div class="app">
+            <div class="img-question" onclick="clickDiv(0)">
+                <img src="./image/asshole3.png" alt="" width="32px" height="32px">
+                <div>刷题</div>
+            </div>
+            <div class="img-random" onclick="clickDiv(1)">
+                <img src="./image/handsome.png" alt="" width="32px" height="32px">
+                <div>随机</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="login-div-big">
+            <div class="login-div-small-1">Login Page</div>
+            <div class="login-div-small-2">
+                <div>
+                    <input type="text" id="name-txt" name="name" placeholder="请输入你的姓名">
+                </div>
+                <div>
+                    <input type="text" id="inv-txt" name="inv" placeholder="输入邀请码">
+                </div>
+                <div id="hidden-div"></div>
+            </div>
+            <div class="login-div-small-3">
+                <div>
+                    <button id="login-btn" onclick="clickBtn(0)">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/lib/axios.min.js"></script>
+    <script src="js/lib/jquery-3.1.1.js"></script>
+    <script src="js/mobileLogin.js"></script>
+</body>
+</html>

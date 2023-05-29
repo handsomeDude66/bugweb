@@ -16,10 +16,14 @@ public class CheckPath extends HttpFilter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String servletPath = req.getServletPath();
+        System.out.println("path " + servletPath);
         if ("/".equals(servletPath)) {
-            resp.sendRedirect(req.getContextPath() + "/login/login.html");
+            if (req.getHeader("Sec-Ch-Ua-Mobile").equals("?1")) {
+                resp.sendRedirect(req.getContextPath() + "/login/mobileLogin.html");
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/login/login.html");
+            }
         } else {
-
             filterChain.doFilter(req, resp);
         }
     }
