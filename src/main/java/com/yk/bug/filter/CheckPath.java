@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter
@@ -16,13 +17,14 @@ public class CheckPath extends HttpFilter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String servletPath = req.getServletPath();
+        HttpSession session = req.getSession(false);
         System.out.println("path " + servletPath);
-        if ("/".equals(servletPath)) {
-            if (req.getHeader("user-agent").contains("Android") || req.getHeader("user-agent").contains("iPhone")) {
-
-                resp.sendRedirect(req.getContextPath() + "/login/login.html");
-            } else {
+        if ("/".equals(servletPath) || "/homepage/".equals(servletPath)
+                || "/login/".equals(servletPath)) {
+            if (session != null && session.getAttribute("type").equals("Phone")) {
                 resp.sendRedirect(req.getContextPath() + "/login/mobileLogin.html");
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/login/login.html");
             }
         } else {
             filterChain.doFilter(req, resp);

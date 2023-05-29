@@ -15,6 +15,15 @@
 <!--  <listener>-->
 <!--    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
 <!--  </listener>-->
+  <filter>
+    <filter-name>type</filter-name>
+    <filter-class>com.yk.bug.filter.CheckType</filter-class>
+  </filter>
+  <filter-mapping>
+<!--    判断机型的-->
+    <filter-name>type</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
   <filter>
     <filter-name>check</filter-name>
@@ -30,9 +39,12 @@
     <filter-class>com.yk.bug.filter.CheckPath</filter-class>
   </filter>
   <filter-mapping>
+<!--    判断机型过后才能过滤到哪-->
     <filter-name>checkPath</filter-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+
 
 
   <!-- add your servlet and servlet-mapping elements here -->

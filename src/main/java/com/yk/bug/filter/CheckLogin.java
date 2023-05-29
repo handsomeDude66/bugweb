@@ -22,11 +22,10 @@ public class CheckLogin extends HttpFilter {
         if (session != null && session.getAttribute("name") != null) {
             filterChain.doFilter(req, resp);
         } else {
-            System.out.println(req.getHeader("user-agent"));
-            if (req.getHeader("user-agent").contains("Android") || req.getHeader("user-agent").contains("iPhone")) {
-                resp.sendRedirect(req.getContextPath() + "/login/login.html");
-            } else {
+            if (session != null && session.getAttribute("type").equals("Phone")) {
                 resp.sendRedirect(req.getContextPath() + "/login/mobileLogin.html");
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/login/login.html");
             }
 
         }
