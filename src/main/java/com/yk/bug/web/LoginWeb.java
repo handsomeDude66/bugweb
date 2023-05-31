@@ -5,12 +5,15 @@ import com.yk.bug.service.impl.LoginServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @Controller
+@Transactional
 @WebServlet({"/loginIn", "/home", "/bug"})
 //@Controller
 public class LoginWeb extends HttpServlet {

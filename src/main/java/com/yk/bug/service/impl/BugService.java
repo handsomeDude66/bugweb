@@ -28,6 +28,18 @@ public class BugService {
     private static int max;
     private static int min;
     private static double status;
+    private static String urlPath = "submit=9057%2C9096%2C9360%2C9361%2C9065" +
+            "%2C9328%2C17636%2C14414%2C14357%2C9115%2C9153%2C9108" +
+            "%2C9350%2C9131%2C9143%2C9139%2C14489%2C14391%" +
+            "2C9059%2C9103%2C9124%2C9309%2C9321%2C14403%" +
+            "2C9068%2C9165%2C9105%2C9369%2C9380%2C14383%2C9377%" +
+            "2C14543%2C9155%2C9116%2C9376%2C9179%2C14412%2C17624%" +
+            "2C9123%2C14382%2C17632%2C9110%2C14374%2C9375%" +
+            "2C9085%2C14400%2C9075%2C14483%2C9195%2C14542&" +
+            "answer=C%2CB%2CC%2CABCD%2CC%2CA%2CA%2CB%2CB%2CD%2CD%" +
+            "2CA%2CC%2CC%2CA%2CC%2CC%2CB%2CAC%2CC%2CC%2CC%2CAD%2CA%" +
+            "2CC%2CA%2CAB%2CD%2CD%2CA%2CC%2CB%2CB%2CA%2CC%2CB%2CD%2CB%" +
+            "2CD%2CA%2CD%2CA%2CC%2CD%2CBC%2CA%2CAB%2CAB%2CC%2CD&time=" ;
 
     public void realBug(HttpServletRequest req, HttpServletResponse resp) throws IOException, InterruptedException {
         session = req.getParameter("session");
@@ -154,18 +166,7 @@ public class BugService {
 
         con.setRequestProperty("Cookie", "SESSION=" + session);
         random = new BigDecimal(random).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        String urlPath = "submit=9057%2C9096%2C9360%2C9361%2C9065" +
-                "%2C9328%2C17636%2C14414%2C14357%2C9115%2C9153%2C9108" +
-                "%2C9350%2C9131%2C9143%2C9139%2C14489%2C14391%" +
-                "2C9059%2C9103%2C9124%2C9309%2C9321%2C14403%" +
-                "2C9068%2C9165%2C9105%2C9369%2C9380%2C14383%2C9377%" +
-                "2C14543%2C9155%2C9116%2C9376%2C9179%2C14412%2C17624%" +
-                "2C9123%2C14382%2C17632%2C9110%2C14374%2C9375%" +
-                "2C9085%2C14400%2C9075%2C14483%2C9195%2C14542&" +
-                "answer=C%2CB%2CC%2CABCD%2CC%2CA%2CA%2CB%2CB%2CD%2CD%" +
-                "2CA%2CC%2CC%2CA%2CC%2CC%2CB%2CAC%2CC%2CC%2CC%2CAD%2CA%" +
-                "2CC%2CA%2CAB%2CD%2CD%2CA%2CC%2CB%2CB%2CA%2CC%2CB%2CD%2CB%" +
-                "2CD%2CA%2CD%2CA%2CC%2CD%2CBC%2CA%2CAB%2CAB%2CC%2CD&time=" + random + "&courseId=502";
+        urlPath = urlPath + random + "&courseId=502";
         System.out.println("max" + max);
         int i = (int) (min + Math.random() * (max - min + 1));
         String[] trueAnswer = getTrueAnswer(urlPath);

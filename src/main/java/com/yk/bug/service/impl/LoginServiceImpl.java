@@ -5,7 +5,6 @@ import com.yk.bug.dao.LoginMapper;
 import com.yk.bug.pojo.User;
 import com.yk.bug.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,11 +17,11 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-//@Transactional
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
     LoginMapper loginMapper;
+
     @Override
     public void isLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
