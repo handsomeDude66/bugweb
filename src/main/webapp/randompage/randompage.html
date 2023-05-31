@@ -61,7 +61,6 @@
             font-size: 14px;
             color: skyblue;
             box-shadow: 0px 0px 5px 1.5px #000;
-            transition: all 1s;
         }
 
         .btn-s:hover {
@@ -133,7 +132,10 @@
 
         @media screen and (max-width: 500px) {
             .input-random-num {
-                width: 395px;
+                width: 80%;
+                top: 30%;
+                margin-top: 0;
+                margin-left: calc(-80% / 2);
             }
 
             .random-num {
@@ -142,14 +144,14 @@
 
             .wrong-msg,
             .random-num {
-                margin-left: 13%;
-                width: 250px;
+                /* margin-left: 13%; */
+                width: 100%;
             }
 
             .btn-s {
-                width: 5rem;
-                transition: none;
-            }
+                margin-left: 80%;
+                /* margin-top: calc(60% / 2); */
+                transform: translateX(-50%) translateY(100%);
 
         }
 
