@@ -34,7 +34,7 @@ clickDiv = function(num) {
     // 发送axios请求
     axios({
         method: 'POST',
-        url: '/loginIn',
+        url: '/loginIn.do',
         data: {name :encodeURI(encodeURI(name)), inv, num}
     })
         .then(function (response) {
