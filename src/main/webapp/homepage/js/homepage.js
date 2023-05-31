@@ -78,7 +78,7 @@ function check() {
     let container = $('#container');
     $.ajax({
         dataType: "json",
-        url: "/bug",
+        url: "/bug.do",
         type: "get",
         data: {session: session.val(), maxNum: maxNum.val(), minNum: minNum.val(), loopNum: loopNum.val()},
         beforeSend: function () {
@@ -93,6 +93,7 @@ function check() {
         },
         error: function (e) {
             if (e.responseText.indexOf("{\"min\":3.41")) {
+                console.log("錯誤")
                 container.css('filter', 'none');
                 load.css('display', 'none');
                 return;

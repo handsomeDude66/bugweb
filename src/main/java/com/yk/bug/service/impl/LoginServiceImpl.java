@@ -6,7 +6,6 @@ import com.yk.bug.pojo.User;
 import com.yk.bug.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    LoginMapper loginMapper;
+    private LoginMapper loginMapper;
 
     @Override
     public void isLogin(HttpServletRequest request, HttpServletResponse response)

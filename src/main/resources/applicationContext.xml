@@ -42,5 +42,19 @@
     </bean>
     <!--    <bean id="UserService" class="com.transaction.service.UserService"/>-->
 <!--    &lt;!&ndash; 开启注解事务的支持 &ndash;&gt;-->
+<!--开启注解 并且json数据转换数据-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="false" >
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="serializationInclusion" value="NON_NULL"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
