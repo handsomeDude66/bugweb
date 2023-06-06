@@ -45,6 +45,14 @@
     <filter-name>check</filter-name>
     <url-pattern>/homepage/homepage.html</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+    <filter-name>check</filter-name>
+    <url-pattern>/shopping/chanel.html</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>check</filter-name>
+    <url-pattern>/randompage/randompage.html</url-pattern>
+  </filter-mapping>
 
   <filter>
     <filter-name>checkPath</filter-name>

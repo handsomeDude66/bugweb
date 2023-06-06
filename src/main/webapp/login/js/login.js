@@ -49,7 +49,6 @@ clickDiv = function(num) {
             if (!(response.data instanceof Object) &&
                 response.data.toString().startsWith('<!DOCTYPE html>')) {
                 aRClass(hidden, "hidden", 1);
-                console.log(name)
                 window.location.href = response.request.responseURL;
             }
         })

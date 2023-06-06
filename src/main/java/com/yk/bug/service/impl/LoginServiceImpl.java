@@ -39,6 +39,9 @@ public class LoginServiceImpl implements LoginService {
         session.setAttribute("name", name);
         if (num == 1) {
             response.sendRedirect(request.getContextPath() + "/randompage/randompage.html");
+        } else if (num == 2) {
+            System.out.println("hello");
+            response.sendRedirect(request.getContextPath() + "/shopping/chanel.html");
         } else {
 //            encode编码
             Cookie cookie = new Cookie("name", URLEncoder.encode(name, StandardCharsets.UTF_8));
