@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dick</title>
+</head>
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    * {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    .nav {
+        width: 100%;
+        text-align: center;
+    }
+    .nav>ul,div {
+        text-align: center;
+    }
+    .nav-s {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-s>li {
+        display: inline;
+        padding: 10px;
+        color: #000;
+        font-size: 13px; 
+        text-align: center;
+    }
+
+    .search-box {
+        text-align: right;
+        padding: 7px;
+        display: block;
+    }
+    #search-txt {
+        width: 300px;
+        padding: 5px;
+        border: 2px solid #000;
+    }
+    #search-btn {
+        padding:5px;
+        background-color: #fff;
+        border: 2px solid #000;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .content {
+        height: 100%;
+    }
+
+    .box {
+        position: relative;
+        height: 100%;
+        margin-top: 10px;
+    }
+
+    .image {
+        height: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .box1 {
+        height: 50%;
+    }
+
+    .box1>.image {
+        background-image: url('./image/visuel-cruise-2023.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+    }
+
+    .box2 {
+        height: 90%;
+        background: linear-gradient(#f1f1f1 0%, #e4e4e4 100%);
+    }
+
+    .box2>.image {
+        background-size: cover 0;
+        background-repeat: no-repeat;
+        background-position: 50% 0%;
+        background-attachment: fixed;
+    }
+
+    .box3 {
+        height: 80%;
+    }
+
+    .box3>.image {
+        background-size: cover;
+        background-position: 50%;
+        background-attachment: fixed;
+    }
+
+    .text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    .box1>.text {
+        color: #fff;
+        margin-left: calc(-293px /2);
+    }
+
+    .box2>.text {
+        /* transform: translateZ(-5px); */
+        margin-left: calc(-176px /2);
+    }
+
+    .box3>.text {
+        color: #000;
+        width: 250px;
+        margin-left: calc(-10px /2); 
+        margin-top: -10%;
+    }
+
+    .text-box {
+        font-size: 30px;
+
+    }
+
+    @media screen and (max-width:610px) {
+        .box1>.image {
+            background-image: url('./image/small.jpg');
+            background-position: 0px -100px;
+        }
+
+        .box3>.image {
+            background-size: 100%;
+        }
+
+        .box3>.text {
+            display: none;
+        }
+        .nav-s {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+            <h1>DICK</h1>
+        <div class="nav">
+            <ul class="nav-s">
+                <li>心愿单</li>
+                <li>购物袋</li>
+                <li class="search-box">
+                    <input type="text" name="search" id="search-txt">
+                    <input type="button" value="search" id="search-btn">    
+                </li>
+                <li>品牌</li>
+                <li>关于</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="box1 box">
+                <div class="image"></div>
+                <div class="text">
+                    <h1>Not Of This World</h1>
+                </div>
+            </div>
+            <!-- <div class="text-box">
+                asdf
+            </div> -->
+            <div class="box2 box">
+                <div class="image" style="background-image: url('./image/visuel_952213.jpg');"></div>
+                <div class="text">
+                    <h1>Real World</h1>
+                </div>
+            </div>
+            <!-- <div class="text-box">
+                asdf
+            </div> -->
+            <div class="box3 box">
+                <div class="image" style="background-image: url('./image/column-15.jpg');"></div>
+                <div class="text">
+                    <h1>Sorry Girls, I Only Date Big Boobs</h1>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <ul class="phone-nav">
+                <li>搜索</li>
+                <li>设置</li>
+                <li>购物车</li>
+                <li>心愿单</li>
+            </ul>
+
+        </div>
+        <div class="foot">
+        </div>
+    </div>
+</body>
+
+</html>
