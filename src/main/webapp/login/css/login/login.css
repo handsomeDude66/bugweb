@@ -136,16 +136,21 @@
 a {
     color:rgba(16, 16, 16, 0.772);
 }
-.app>a>div {
-    width: 50px;
+.app {
+    display:grid;
+    grid-auto-flow: column;
+}
+.app>div {
+    width: 100%;
+    height: 100%;
     margin-top: 10px;
     float: left;
-    padding: 10px;
+    padding: 2px;
     cursor: pointer;
     text-align: center;
     transition: all 0.5s;
 }
-.app>a>div:hover {
+.app>div:hover {
     box-shadow: 0px 5px 10px #000;
     transform: translateY(-10px);
 }

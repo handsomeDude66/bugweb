@@ -86,6 +86,10 @@
     font-size: 32px;
     font-weight: bold;
 }
+.app {
+    display: grid;
+    grid-auto-flow: column;
+}
 .app>div {
     float: left;
     padding: 8px;
@@ -94,7 +98,7 @@
     transition: all 0.5s;
     color:rgba(16, 16, 16, 0.772);
 }
-.app>a>div:hover {
+.app>div:hover {
     box-shadow: 0px 5px 10px #000;
     transform: translateY(-10px);
 }
@@ -120,6 +124,10 @@
                 <img src="./image/handsome.png" alt="" width="32px" height="32px">
                 <div>随机</div>
             </div>
+            <div class="img-shopping" onclick="clickDiv(2)">
+                <img src="./image/asshole3.png" alt="" width="32px" height="32px">
+                <div>购物</div>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -143,6 +151,6 @@
     </div>
     <script src="js/lib/axios.min.js"></script>
     <script src="js/lib/jquery-3.1.1.js"></script>
-    <script src="js/mobileLogin.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

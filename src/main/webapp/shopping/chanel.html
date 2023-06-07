@@ -56,16 +56,21 @@
         text-align: right;
         padding: 7px;
         display: block;
-
+        height: 100%;
     }
 
     #search-txt {
         padding: 5px;
         border: 2px solid #000;
+        outline: 0;
+        width: 70vh;
+        height: 5vh;
+        
     }
 
     #search-btn {
-        padding: 5px;
+        height: 5vh;
+        padding: 10px;
         background-color: #fff;
         border: 2px solid #000;
     }
@@ -158,8 +163,17 @@
         font-size: 30px;
 
     }
+
     .hide {
-        display:none;
+        display: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        #search-txt {
+            width:42vh;
+        }
+
+
     }
 
     @media screen and (max-width:610px) {
@@ -183,67 +197,97 @@
             border-top: 1px solid #dedede;
             display: flex;
             flex-direction: column;
-            color:rgb(107, 99, 101);
+            color: rgb(107, 99, 101);
+            height: 100%;
         }
 
         .nav-p-s {
             display: flex;
             height: auto;
             width: 100%;
+            height: 100%;
         }
 
         .nav-p-s>* {
             width: 100%;
             height: 3.5rem;
-            display:flex;
+            display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .nav-choose {
             font-weight: bold;
-            color:#000000;
+            color: #000000;
             border-bottom: 2px solid #000;
         }
+
         #search-txt {
-            width: 80%;
+            width: 75%;
+            height: 100%;
+            /* border-right: 0; */
+        }
+        #search-btn {
+            height: 100%;
+            width: 20%;
+            border-left: 0;
+            text-align: center;
+
         }
         .search-box {
+            display: flex;
             text-align: center;
+            height: 10%;
+            justify-content: center;
+            align-items: center;
+        }
+        .content2 {
+            height: 100%;
+        }
+        .content2>div {
+            height: 100%;
         }
         .content3 {
             display: flex;
             justify-content: center;
         }
+
         .phone-msg-box {
             display: grid;
             width: 75%;
             margin-top: 5%;
             grid-template-columns: auto;
         }
+
         .input-data {
             position: relative;
         }
+
         .input-data input {
             width: 100%;
-            height: 30%; 
+            height: 30%;
             border: 0;
             outline: 0;
-            border-bottom:2px solid #808080;
+            border-bottom: 2px solid #808080;
         }
+
         .input-data label {
             position: absolute;
             left: 0;
-            color:#b4b4b4;
-            transition:  all 0.3s;
+            color: #b4b4b4;
+            transition: all 0.3s;
         }
+
         .input-data input:focus~label {
             transform: translateY(-20px);
             font-size: 12px;
         }
+
         .input-data input:focus {
-            transition:  all 0.3s;
+            transition: all 0.3s;
             /* animation: border 2s forwards; */
         }
+
         .btn-s-i {
             width: 100%;
             height: 40%;
@@ -269,7 +313,7 @@
                 <li>关于</li>
             </ul>
         </div>
-        <div class="content1 hide" >
+        <div class="content1 hide">
             <div class="box1 box">
                 <div class="image"></div>
                 <div class="text">
@@ -303,23 +347,23 @@
                 </li>
             </div>
         </div>
-        <div class="content3 hide">
+        <div class="content3 hide" style="display: none">
             <div class="phone-msg-box">
                 <div class="input-data">
                     <input type="text" name="myname" id="myname">
                     <label>Name</label>
                 </div>
                 <div class="input-data">
-                    <input type="text" name="myage" id="myage" >
+                    <input type="text" name="myage" id="myage">
                     <label>Age</label>
                 </div>
                 <div class="input-data">
-                    <input type="text" name="inv" id="inv" >
+                    <input type="text" name="inv" id="inv">
                     <label>VIPID</label>
                 </div>
-            <div>
-                <button class="btn-s-i">提交</button>
-            </div>
+                <div>
+                    <button class="btn-s-i">提交</button>
+                </div>
             </div>
         </div>
         <div class="nav-phone hide">
@@ -332,38 +376,68 @@
     </div>
 </body>
 <script>
-    let c1, c2, c3;
+    let phoneS;
+    let c1, c2, c3, index = 0;
     c1 = $(".content1");
     c2 = $(".content2");
     c3 = $(".content3");
     let li = $('.nav-p-s li');
+    // 定义事件监听器函数
+    function watchWindowSize() {
+        main();
+    }
     function clear() {
         c1.removeClass("hide");
         c2.removeClass("hide");
         c3.removeClass("hide");
     }
     function clearBorder() {
-        li.each(function(index) {
+        li.each(function (index) {
             $(this).removeClass("nav-choose");
         })
     }
-    
-    function phoneS(num) {
-        clear();
-        clearBorder()
-        if (num === 1) {
-            c1.addClass("hide");
-            c3.css("display", "none");
-        } else if (num === 2) {
-            c1.addClass("hide");
-            c2.addClass("hide");
-            c3.css("display", "flex");
+    main();
+    function main() {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        // console.log(w);
+        if (w <= 610) {
+            console.log(w);
+            phoneS = function (num) {
+                clear();
+                clearBorder()
+                if (num === 1) {
+                    c1.addClass("hide");
+                    c3.css("display", "none");
+                } else if (num === 2) {
+                    c1.addClass("hide");
+                    c2.addClass("hide");
+                    c3.css("display", "flex");
+                } else {
+                    c2.addClass("hide");
+                    c3.css("display", "none");
+                }
+                $(li[num]).addClass("nav-choose");
+            }
+            if (index++ === 0) {
+                console.log("a")
+                phoneS(0);
+            }
         } else {
+            // c1.addClass("hide");
+            console.log("超出了")
+            clear();
             c2.addClass("hide");
             c3.css("display", "none");
+            clearBorder();
+            $(li[0]).addClass("nav-choose");
         }
-        $(li[num]).addClass("nav-choose");
     }
+    // 注册事件监听器
+    window.addEventListener("resize", watchWindowSize);
+
+
 
 </script>
+
 </html>
