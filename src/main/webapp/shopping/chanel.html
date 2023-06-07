@@ -56,10 +56,10 @@
         text-align: right;
         padding: 7px;
         display: block;
+
     }
 
     #search-txt {
-        width: 300px;
         padding: 5px;
         border: 2px solid #000;
     }
@@ -81,7 +81,8 @@
         overflow: hidden;
     }
 
-    .content {
+    .content1 {
+        /* display: none; */
         overflow: auto;
     }
 
@@ -157,7 +158,7 @@
         font-size: 30px;
 
     }
-    .nav-phone {
+    .hide {
         display:none;
     }
 
@@ -179,8 +180,10 @@
         }
 
         .nav-phone {
+            border-top: 1px solid #dedede;
             display: flex;
             flex-direction: column;
+            color:rgb(107, 99, 101);
         }
 
         .nav-p-s {
@@ -196,10 +199,62 @@
             justify-content: center;
             align-items: center;
         }
+        .nav-choose {
+            font-weight: bold;
+            color:#000000;
+            border-bottom: 2px solid #000;
+        }
+        #search-txt {
+            width: 80%;
+        }
+        .search-box {
+            text-align: center;
+        }
+        .content3 {
+            display: flex;
+            justify-content: center;
+        }
+        .phone-msg-box {
+            display: grid;
+            width: 75%;
+            margin-top: 5%;
+            grid-template-columns: auto;
+        }
+        .input-data {
+            position: relative;
+        }
+        .input-data input {
+            width: 100%;
+            height: 30%; 
+            border: 0;
+            outline: 0;
+            border-bottom:2px solid #808080;
+        }
+        .input-data label {
+            position: absolute;
+            left: 0;
+            color:#b4b4b4;
+            transition:  all 0.3s;
+        }
+        .input-data input:focus~label {
+            transform: translateY(-20px);
+            font-size: 12px;
+        }
+        .input-data input:focus {
+            transition:  all 0.3s;
+            /* animation: border 2s forwards; */
+        }
+        .btn-s-i {
+            width: 100%;
+            height: 40%;
+            background-color: #fff;
+            border: 2px solid #b4b4b4;
+        }
     }
 </style>
 
 <body>
+    <script src="./lib/jquery-3.1.1.js"></script>
     <div class="container">
         <h1>DICK</h1>
         <div class="nav">
@@ -214,7 +269,7 @@
                 <li>关于</li>
             </ul>
         </div>
-        <div class="content">
+        <div class="content1 hide" >
             <div class="box1 box">
                 <div class="image"></div>
                 <div class="text">
@@ -240,17 +295,75 @@
                 </div>
             </div>
         </div>
-        <div class="nav-phone">
-            <ul class="nav-p-s">
-                <li>搜索</li>
-                <li>设置</li>
-                <li>购物车</li>
-                <li>心愿单</li>
-            </ul>
+        <div class="content2 hide">
+            <div>
+                <li class="search-box">
+                    <input type="text" name="search" id="search-txt">
+                    <input type="button" value="search" id="search-btn">
+                </li>
+            </div>
         </div>
-        <div class="foot">
+        <div class="content3 hide">
+            <div class="phone-msg-box">
+                <div class="input-data">
+                    <input type="text" name="myname" id="myname">
+                    <label>Name</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="myage" id="myage" >
+                    <label>Age</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="inv" id="inv" >
+                    <label>VIPID</label>
+                </div>
+            <div>
+                <button class="btn-s-i">提交</button>
+            </div>
+            </div>
+        </div>
+        <div class="nav-phone hide">
+            <ul class="nav-p-s">
+                <li class="nav-choose" onclick="phoneS(0)">首页</li>
+                <li onclick="phoneS(1)">搜索</li>
+                <li onclick="phoneS(2)">我的</li>
+            </ul>
         </div>
     </div>
 </body>
+<script>
+    let c1, c2, c3;
+    c1 = $(".content1");
+    c2 = $(".content2");
+    c3 = $(".content3");
+    let li = $('.nav-p-s li');
+    function clear() {
+        c1.removeClass("hide");
+        c2.removeClass("hide");
+        c3.removeClass("hide");
+    }
+    function clearBorder() {
+        li.each(function(index) {
+            $(this).removeClass("nav-choose");
+        })
+    }
+    
+    function phoneS(num) {
+        clear();
+        clearBorder()
+        if (num === 1) {
+            c1.addClass("hide");
+            c3.css("display", "none");
+        } else if (num === 2) {
+            c1.addClass("hide");
+            c2.addClass("hide");
+            c3.css("display", "flex");
+        } else {
+            c2.addClass("hide");
+            c3.css("display", "none");
+        }
+        $(li[num]).addClass("nav-choose");
+    }
 
+</script>
 </html>
