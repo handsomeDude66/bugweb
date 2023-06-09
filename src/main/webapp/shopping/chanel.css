@@ -1,0 +1,325 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* 滚动条设置 */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: #fff;
+}
+
+.nav {
+    width: 100%;
+    text-align: center;
+}
+
+.nav > ul,
+div {
+    text-align: center;
+}
+
+.nav-s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-s > li {
+    padding: 10px;
+    color: #000;
+    font-size: 13px;
+    text-align: center;
+}
+
+.search-box {
+    text-align: right;
+    padding: 7px;
+    display: flex;
+    height: 100%;
+}
+
+.search-txt {
+    padding: 5px;
+    border: 2px solid #000;
+    outline: 0;
+    width: 70vh;
+    height: 5vh;
+
+}
+
+.search-btn {
+    height: 5vh;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-left: 0;
+}
+
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content1 {
+    /* display: none; */
+    overflow: auto;
+}
+
+.box {
+    position: relative;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.image {
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.box1 {
+    height: 50%;
+}
+
+.box1 > .image {
+    background-image: url('./image/visuel-cruise-2023.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+.box2 {
+    height: 90%;
+    background: linear-gradient(#f1f1f1 0%, #e4e4e4 100%);
+}
+
+.box2 > .image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    background-attachment: fixed;
+}
+
+.box3 {
+    height: 80%;
+}
+
+.box3 > .image {
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+}
+
+.text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.box1 > .text {
+    color: #fff;
+    margin-left: calc(-293px / 2);
+}
+
+.box2 > .text {
+    /* transform: translateZ(-5px); */
+    margin-left: calc(-176px / 2);
+}
+
+.box3 > .text {
+    color: #000;
+    width: 250px;
+    margin-left: calc(-10px / 2);
+    margin-top: -10%;
+}
+
+.text-box {
+    font-size: 30px;
+
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .search-txt {
+        width: 42vh;
+    }
+
+
+}
+
+@media screen and (max-width: 610px) {
+    .box1 > .image {
+        background-image: url('./image/small.jpg');
+    }
+
+    .box3 > .image {
+        background-size: 100%;
+    }
+
+    .box3 > .text {
+        display: none;
+    }
+
+    .nav-s {
+        display: none;
+    }
+
+    .nav-phone {
+        border-top: 1px solid #dedede;
+        display: flex;
+        flex-direction: column;
+        color: rgb(107, 99, 101);
+        height: 100%;
+    }
+
+    .nav-p-s {
+        display: flex;
+        height: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-p-s > * {
+        width: 100%;
+        height: 3.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-choose {
+        font-weight: bold;
+        color: #000000;
+        border-bottom: 2px solid #000;
+    }
+
+    .search-txt {
+        width: 75%;
+        height: 100%;
+        /* border-right: 0; */
+    }
+
+    .search-btn {
+        height: 100%;
+        width: 20%;
+        border-left: 0;
+        text-align: center;
+
+    }
+
+    .search-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-show {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 4%;
+    }
+
+    .search-show > div {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 4%;
+        background-size: cover;
+    }
+    /*文本*/
+    .search-show>div>div {
+        text-align: center;
+        animation: moveUp 1s;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .content2 {
+        height: 100%;
+        display: grid;
+        overflow: auto;
+        grid-template-rows: auto 1fr;
+    }
+
+    .content3 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .phone-msg-box {
+        display: grid;
+        width: 75%;
+        margin-top: 5%;
+        grid-template-columns: auto;
+    }
+
+    .input-data {
+        position: relative;
+    }
+
+    .input-data input {
+        width: 100%;
+        height: 30%;
+        border: 0;
+        outline: 0;
+        border-bottom: 2px solid #808080;
+    }
+
+    .input-data label {
+        position: absolute;
+        left: 0;
+        color: #b4b4b4;
+        transition: all 0.3s;
+    }
+
+
+    .input-data input:focus {
+        transition: all 0.3s;
+        /* animation: border 2s forwards; */
+    }
+
+    .btn-s-i {
+        width: 100%;
+        height: 40%;
+        background-color: #fff;
+        border: 2px solid #b4b4b4;
+
+    }
+    .search-i-btf {
+        animation: moveUp 1s;
+    }
+
+    @keyframes moveUp {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+    }
+}

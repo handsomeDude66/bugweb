@@ -4,440 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dick</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dik</title>
 </head>
-<style>
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-    }
-
-    * {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-    }
-
-    /* 滚动条设置 */
-    ::-webkit-scrollbar {
-        width: 0px;
-        height: 0px;
-        background-color: #fff;
-    }
-
-    .nav {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav>ul,
-    div {
-        text-align: center;
-    }
-
-    .nav-s {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nav-s>li {
-        display: inline;
-        padding: 10px;
-        color: #000;
-        font-size: 13px;
-        text-align: center;
-    }
-
-    .search-box {
-        text-align: right;
-        padding: 7px;
-        display: block;
-        height: 100%;
-    }
-
-    #search-txt {
-        padding: 5px;
-        border: 2px solid #000;
-        outline: 0;
-        width: 70vh;
-        height: 5vh;
-        
-    }
-
-    #search-btn {
-        height: 5vh;
-        padding: 10px;
-        background-color: #fff;
-        border: 2px solid #000;
-    }
-
-    .container {
-        position: fixed;
-        left: 0;
-        top: 0;
-        display: grid;
-        grid-template-rows: auto auto 1fr auto auto;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .content1 {
-        /* display: none; */
-        overflow: auto;
-    }
-
-    .box {
-        position: relative;
-        height: 100%;
-        margin-top: 10px;
-    }
-
-    .image {
-        height: 100%;
-        background-repeat: no-repeat;
-    }
-
-    .box1 {
-        height: 50%;
-    }
-
-    .box1>.image {
-        background-image: url('./image/visuel-cruise-2023.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-
-    }
-
-    .box2 {
-        height: 90%;
-        background: linear-gradient(#f1f1f1 0%, #e4e4e4 100%);
-    }
-
-    .box2>.image {
-        background-size: cover 0;
-        background-repeat: no-repeat;
-        background-position: 50% 0%;
-        background-attachment: fixed;
-    }
-
-    .box3 {
-        height: 80%;
-    }
-
-    .box3>.image {
-        background-size: cover;
-        background-position: 50%;
-        background-attachment: fixed;
-    }
-
-    .text {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-    }
-
-    .box1>.text {
-        color: #fff;
-        margin-left: calc(-293px /2);
-    }
-
-    .box2>.text {
-        /* transform: translateZ(-5px); */
-        margin-left: calc(-176px /2);
-    }
-
-    .box3>.text {
-        color: #000;
-        width: 250px;
-        margin-left: calc(-10px /2);
-        margin-top: -10%;
-    }
-
-    .text-box {
-        font-size: 30px;
-
-    }
-
-    .hide {
-        display: none;
-    }
-
-    @media screen and (max-width: 1000px) {
-        #search-txt {
-            width:42vh;
-        }
-
-
-    }
-
-    @media screen and (max-width:610px) {
-        .box1>.image {
-            background-image: url('./image/small.jpg');
-        }
-
-        .box3>.image {
-            background-size: 100%;
-        }
-
-        .box3>.text {
-            display: none;
-        }
-
-        .nav-s {
-            display: none;
-        }
-
-        .nav-phone {
-            border-top: 1px solid #dedede;
-            display: flex;
-            flex-direction: column;
-            color: rgb(107, 99, 101);
-            height: 100%;
-        }
-
-        .nav-p-s {
-            display: flex;
-            height: auto;
-            width: 100%;
-            height: 100%;
-        }
-
-        .nav-p-s>* {
-            width: 100%;
-            height: 3.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nav-choose {
-            font-weight: bold;
-            color: #000000;
-            border-bottom: 2px solid #000;
-        }
-
-        #search-txt {
-            width: 75%;
-            height: 100%;
-            /* border-right: 0; */
-        }
-        #search-btn {
-            height: 100%;
-            width: 20%;
-            border-left: 0;
-            text-align: center;
-
-        }
-        .search-box {
-            display: flex;
-            text-align: center;
-            height: 10%;
-            justify-content: center;
-            align-items: center;
-        }
-        .content2 {
-            height: 100%;
-        }
-        .content2>div {
-            height: 100%;
-        }
-        .content3 {
-            display: flex;
-            justify-content: center;
-        }
-
-        .phone-msg-box {
-            display: grid;
-            width: 75%;
-            margin-top: 5%;
-            grid-template-columns: auto;
-        }
-
-        .input-data {
-            position: relative;
-        }
-
-        .input-data input {
-            width: 100%;
-            height: 30%;
-            border: 0;
-            outline: 0;
-            border-bottom: 2px solid #808080;
-        }
-
-        .input-data label {
-            position: absolute;
-            left: 0;
-            color: #b4b4b4;
-            transition: all 0.3s;
-        }
-
-        .input-data input:focus~label {
-            transform: translateY(-20px);
-            font-size: 12px;
-        }
-
-        .input-data input:focus {
-            transition: all 0.3s;
-            /* animation: border 2s forwards; */
-        }
-
-        .btn-s-i {
-            width: 100%;
-            height: 40%;
-            background-color: #fff;
-            border: 2px solid #b4b4b4;
-        }
-    }
-</style>
+<link rel="stylesheet" href="./chanel.css">
 
 <body>
-    <script src="./lib/jquery-3.1.1.js"></script>
-    <div class="container">
-        <h1>DICK</h1>
-        <div class="nav">
-            <ul class="nav-s">
-                <li>心愿单</li>
-                <li>购物袋</li>
-                <li class="search-box">
-                    <input type="text" name="search" id="search-txt">
-                    <input type="button" value="search" id="search-btn">
-                </li>
-                <li>品牌</li>
-                <li>关于</li>
-            </ul>
-        </div>
-        <div class="content1 hide">
-            <div class="box1 box">
-                <div class="image"></div>
-                <div class="text">
-                    <h1>Not Of This World</h1>
-                </div>
-            </div>
-            <!-- <div class="text-box">
-                asdf
-            </div> -->
-            <div class="box2 box">
-                <div class="image" style="background-image: url('./image/visuel_952213.jpg');"></div>
-                <div class="text">
-                    <h1>Real World</h1>
-                </div>
-            </div>
-            <!-- <div class="text-box">
-                asdf
-            </div> -->
-            <div class="box3 box">
-                <div class="image" style="background-image: url('./image/column-15.jpg');"></div>
-                <div class="text">
-                    <h1>Sorry Girls, I Only Date Big Boobs</h1>
-                </div>
+<script src="./lib/jquery-3.1.1.js"></script>
+<div class="container">
+    <h1>DIK</h1>
+    <div class="nav">
+        <ul class="nav-s">
+            <li>心愿单</li>
+            <li>购物袋</li>
+            <li class="search-box">
+                <input type="text" name="search" class="search-txt">
+                <input type="button" value="search" class="search-btn">
+            </li>
+            <li>品牌</li>
+            <li>关于</li>
+        </ul>
+    </div>
+    <div class="content1 hide">
+        <div class="box1 box">
+            <div class="image"></div>
+            <div class="text">
+                <h1>Not Of This World</h1>
             </div>
         </div>
-        <div class="content2 hide">
-            <div>
-                <li class="search-box">
-                    <input type="text" name="search" id="search-txt">
-                    <input type="button" value="search" id="search-btn">
-                </li>
+        <div class="box2 box">
+            <div class="image" style="background-image: url('./image/visuel_952213.jpg');"></div>
+            <div class="text">
+                <h1>Real World</h1>
             </div>
         </div>
-        <div class="content3 hide" style="display: none">
-            <div class="phone-msg-box">
-                <div class="input-data">
-                    <input type="text" name="myname" id="myname">
-                    <label>Name</label>
-                </div>
-                <div class="input-data">
-                    <input type="text" name="myage" id="myage">
-                    <label>Age</label>
-                </div>
-                <div class="input-data">
-                    <input type="text" name="inv" id="inv">
-                    <label>VIPID</label>
-                </div>
-                <div>
-                    <button class="btn-s-i">提交</button>
-                </div>
+        <div class="box3 box">
+            <div class="image" style="background-image: url('./image/column-15.jpg');"></div>
+            <div class="text">
+                <h1>Sorry Girls, I Only Date Big Boobs</h1>
             </div>
-        </div>
-        <div class="nav-phone hide">
-            <ul class="nav-p-s">
-                <li class="nav-choose" onclick="phoneS(0)">首页</li>
-                <li onclick="phoneS(1)">搜索</li>
-                <li onclick="phoneS(2)">我的</li>
-            </ul>
         </div>
     </div>
+    <div class="content2 hide">
+        <div class="search-box">
+            <input type="text" name="search" class="search-txt" id="search-p-txt">
+            <input type="button" value="search" class="search-btn" onclick="search()">
+        </div>
+        <div class="search-show">
+            <div style="font-size: 14px">·请输入你要搜的内容 如果不知道搜索什么请输入"潮流"~·</div>
+        </div>
+    </div>
+    <div class="content3 hide" style="display: none">
+        <div class="phone-msg-box">
+            <div class="input-data">
+                <input type="text" name="myname" id="myname">
+                <label>Name</label>
+            </div>
+            <div class="input-data">
+                <input type="text" name="myage" id="myage">
+                <label>Age</label>
+            </div>
+            <div class="input-data">
+                <input type="text" name="inv" id="inv">
+                <label>VIPID</label>
+            </div>
+            <div>
+                <button class="btn-s-i">提交</button>
+            </div>
+        </div>
+    </div>
+    <div class="nav-phone hide">
+        <ul class="nav-p-s">
+            <li class="nav-choose" onclick="phoneS(0)">首页</li>
+            <li onclick="phoneS(1)">搜索</li>
+            <li onclick="phoneS(2)">我的</li>
+        </ul>
+    </div>
+</div>
 </body>
-<script>
-    let phoneS;
-    let c1, c2, c3, index = 0;
-    c1 = $(".content1");
-    c2 = $(".content2");
-    c3 = $(".content3");
-    let li = $('.nav-p-s li');
-    // 定义事件监听器函数
-    function watchWindowSize() {
-        main();
-    }
-    function clear() {
-        c1.removeClass("hide");
-        c2.removeClass("hide");
-        c3.removeClass("hide");
-    }
-    function clearBorder() {
-        li.each(function (index) {
-            $(this).removeClass("nav-choose");
-        })
-    }
-    main();
-    function main() {
-        var w = document.documentElement.clientWidth;
-        var h = document.documentElement.clientHeight;
-        // console.log(w);
-        if (w <= 610) {
-            console.log(w);
-            phoneS = function (num) {
-                clear();
-                clearBorder()
-                if (num === 1) {
-                    c1.addClass("hide");
-                    c3.css("display", "none");
-                } else if (num === 2) {
-                    c1.addClass("hide");
-                    c2.addClass("hide");
-                    c3.css("display", "flex");
-                } else {
-                    c2.addClass("hide");
-                    c3.css("display", "none");
-                }
-                $(li[num]).addClass("nav-choose");
-            }
-            if (index++ === 0) {
-                console.log("a")
-                phoneS(0);
-            }
-        } else {
-            // c1.addClass("hide");
-            console.log("超出了")
-            clear();
-            c2.addClass("hide");
-            c3.css("display", "none");
-            clearBorder();
-            $(li[0]).addClass("nav-choose");
-        }
-    }
-    // 注册事件监听器
-    window.addEventListener("resize", watchWindowSize);
-
-
-
-</script>
+<script src="chanel.js"></script>
 
 </html>
